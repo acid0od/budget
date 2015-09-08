@@ -6,8 +6,20 @@ apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'jetty'
 
+
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+buildDir = 'target'
+
+sourceSets {
+    main {
+        output.resourcesDir = 'target/classes'
+        output.classesDir = 'target/knowledgy'
+    }
+}
+
 
 repositories {
     mavenLocal()
@@ -34,3 +46,26 @@ jettyRunWar {
     contextPath = "spring4"
     httpPort = 8080
 }
+
+/*
+apply plugin: 'org.akhikhl.gretty'
+//Gretty Embedded Jetty
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.akhikhl.gretty:gretty:+'
+  }
+}
+
+// Don't use Jetty8, even it's a servlet 3.0+ container,
+// but not support non-jar WebApplicationInitializer scanning.
+// It will cause "No Spring WebApplicationInitializer types detected on classpath"
+gretty {
+  port = 8080
+  contextPath = 'spring4'
+  servletContainer = 'jetty9' //tomcat7 or tomcat8
+}
+*/
