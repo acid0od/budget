@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Hello world</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<body>
+<div ng-app="todo">
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">To'Do List</a>
+    </div>
+    <div class="panel panel-default row" ng-controller="todoController">
+        <div class="col-xs-3">
+            Categories go here
+        </div>
+        <div class="col-xs-8">
+            <div class="well" ng-repeat="entity in allList">
+                <h3>
+                    <strong>{{entity.title}}</strong>
+						<span class="pull-right label label-primary">
+							{{entity.impotant}} 
+						</span>
+                </h3>
+                <span class="lead">{{entity.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="editTodoController">
+        <form class="form">
+            <div class="row-fluid">
+                <div class="span3">
+                    <fieldset>
+                        <label for="title">Title</label>
+                        <input id="title" type="text" placeholder="Title" ng-model="entity.title"/>
+                        <label for="description">Description</label>
+                        <input id="description" type="text" placeholder="Description" ng-model="entity.description"/>
+                    </fieldset>
+                    <button class="btn btn-primary" ng-click="SaveEntity(entity)" type="submit">Save</button>
+                    <button class="btn btn-defaault" ng-click="CancelEdit()" type="cancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

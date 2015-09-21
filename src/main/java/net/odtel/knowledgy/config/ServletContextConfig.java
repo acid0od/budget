@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("net.odtel.knowledgy.contoller")
-public class ServletContextConfig  extends WebMvcConfigurerAdapter {
+@ComponentScan("net.odtel.knowledgy.controller")
+public class ServletContextConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers (ResourceHandlerRegistry registry) {

@@ -1,17 +1,9 @@
 package net.odtel.knowledgy.init;
 
-import java.sql.Time;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManagerFactory;
-import java.sql.Time;
-import java.util.Date;
-
 
 @Component
 public class TestDataInitializer {
@@ -22,7 +14,7 @@ public class TestDataInitializer {
 
     public void init() throws Exception {
 
-        SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
+        /*SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -31,23 +23,14 @@ public class TestDataInitializer {
 
         session.persist(user);
 
-        session.persist(new Meal(user, new Date(115, 0, 1), new Time(12, 0, 0), "1 - Mitraillette", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 1), new Time(19, 0, 0), "1 - Eggplant Parmesan", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 2), new Time(12, 0, 0), "2 -  Chickpea with roasted cauliflower", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 2), new Time(19, 0, 0), "2 - Chicken Stew with Turnips & Mushrooms", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 3), new Time(12, 0, 0), "3 - Rosemary Lentils & Greens on Toasted Bread", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 3), new Time(19, 0, 0), "3 - Salmon Cakes with Olives, Lemon & Dill", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 4), new Time(12, 0, 0), "4 - Cowboy Beef & Bean Chili", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 4), new Time(19, 0, 0), "4 -  Duck Chiles Rellenos", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 5), new Time(12, 0, 0), "5 - Brussels Sprout & Potato Hash", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 5), new Time(19, 0, 0), "5 -  Creamy Green Chile Chicken Soup", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 6), new Time(12, 0, 0), "6 -  Duck Chiles Rellenos", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 6), new Time(19, 0, 0), "6 -  Apricot-Chile Glazed Salmon", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 7), new Time(12, 0, 0), "7 -  Creamy Mustard Chicken", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 7), new Time(19, 0, 0), "7 -   Grape Chutney", 1000L));
-        session.persist(new Meal(user, new Date(115, 0, 8), new Time(12, 0, 0), "8 -  Broccoli Rabe", 2000L));
-        session.persist(new Meal(user, new Date(115, 0, 8), new Time(19, 0, 0), "8 -  Moules Frites", 1000L));
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(115 + 1900, 7, 12);
 
-        transaction.commit();
+        session.persist(new Purchase("Type", "Description", gregorianCalendar.getTime(), 10));
+        session.persist(new Purchase("Type-1", "Description-1", gregorianCalendar.getTime(), 20));
+        session.persist(new Purchase("Type-2", "Description-2", gregorianCalendar.getTime(), 30));
+        session.persist(new Purchase("Type-2", "Description-3", gregorianCalendar.getTime(), 30));
+        session.persist(new Purchase("Type-2", "Description-4", gregorianCalendar.getTime(), 310));
+
+        transaction.commit();*/
     }
 }

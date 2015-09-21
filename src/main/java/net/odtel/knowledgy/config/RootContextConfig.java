@@ -10,7 +10,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.persistence.EntityManagerFactory;
 
 @Configuration
-@ComponentScan({"net.odtel.knowledgy.service", "net.odtel.knowledgy.dao"})
+@ComponentScan({"net.odtel.knowledgy.service", "net.odtel.knowledgy.model"})
 public class RootContextConfig {
 
     @Bean(name = "transactionManager")

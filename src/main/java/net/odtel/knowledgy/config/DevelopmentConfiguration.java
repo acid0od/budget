@@ -3,7 +3,6 @@ package net.odtel.knowledgy.config;
 import net.odtel.knowledgy.init.TestDataInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@Profile("development")
+//@Profile("development")
 @EnableTransactionManagement
 public class DevelopmentConfiguration {
 
