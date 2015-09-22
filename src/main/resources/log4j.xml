@@ -10,8 +10,8 @@
         </layout>
     </appender>
 
-    <logger name="calories.tracker.app">
-        <level value="info"/>
+    <logger name="net.odtel.budget">
+        <level value="debug"/>
     </logger>
 
     <logger name="org.springframework.core">
@@ -27,11 +27,11 @@
     </logger>
 
     <logger name="org.springframework.http">
-        <level value="error"/>
+        <level value="debug"/>
     </logger>
 
     <logger name="org.springframework.web">
-        <level value="error"/>
+        <level value="debug"/>
     </logger>
 
     <logger name="org.springframework.security">
