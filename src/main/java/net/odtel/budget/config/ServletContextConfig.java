@@ -11,12 +11,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan("net.odtel.budget.controller")
 public class ServletContextConfig extends WebMvcConfigurerAdapter {
 
-/*
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-    }
-*/
-
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         super.addViewControllers(registry);
@@ -41,7 +35,6 @@ public class ServletContextConfig extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        //resolver.setPrefix("/resources/");
         resolver.setSuffix(".html");
         return resolver;
     }
