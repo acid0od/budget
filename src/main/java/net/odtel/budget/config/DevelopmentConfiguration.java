@@ -1,6 +1,6 @@
-package net.odtel.knowledgy.config;
+package net.odtel.budget.config;
 
-import net.odtel.knowledgy.init.TestDataInitializer;
+import net.odtel.budget.init.TestDataInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
@@ -37,7 +37,7 @@ public class DevelopmentConfiguration {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan(new String[]{"net.odtel.knowledgy.model"});
+        entityManagerFactoryBean.setPackagesToScan(new String[]{"net.odtel.budget.model"});
         entityManagerFactoryBean.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 

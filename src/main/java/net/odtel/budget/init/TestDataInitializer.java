@@ -1,4 +1,4 @@
-package net.odtel.knowledgy.init;
+package net.odtel.budget.init;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

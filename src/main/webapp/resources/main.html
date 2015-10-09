@@ -5,43 +5,236 @@
     <title>Hello world</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.1.2/css/bootcards-desktop.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
-<div ng-app="todo">
-    <div class="navbar navbar-inverse">
-        <a class="navbar-brand" href="#">To'Do List</a>
-    </div>
-    <div class="panel panel-default row" ng-controller="todoController">
-        <div class="col-xs-3">
-            Categories go here
+<!--
+<div class="container">
+    <div ng-app="todo">
+
+        <div>
+            <a class="btn btn-lg bg-info" href="#">
+                <i class="fa fa-lightbulb-o fa-5x pull-left"></i>
+                Add Home<br>Take a check
+            </a>
         </div>
-        <div class="col-xs-8">
-            <div class="well" ng-repeat="entity in allList">
-                <h3>
-                    <strong>{{entity.title}}</strong>
+
+        <div class="navbar navbar-inverse">
+            <a class="navbar-brand" href="#">To'Do List</a>
+        </div>
+        <div class="panel panel-default row" ng-controller="todoController">
+            <div class="col-xs-3">
+                Categories go here
+            </div>
+            <i class="fa fa-life-ring fa-5x fa-border fa-inverse"></i>
+            <i class="fa fa-camera-retro fa-5x"></i>
+
+            <span class="fa-stack fa-5x">
+                <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+
+            <div class="col-xs-8">
+                <div class="well" ng-repeat="entity in allList">
+                    <h3>
+                        <strong>{{entity.title}}</strong>
 						<span class="pull-right label label-primary">
 							{{entity.impotant}} 
 						</span>
-                </h3>
-                <span class="lead">{{entity.description}}</span>
-            </div>
-        </div>
-    </div>
-    <div ng-controller="editTodoController">
-        <form class="form">
-            <div class="row-fluid">
-                <div class="span3">
-                    <fieldset>
-                        <label for="title">Title</label>
-                        <input id="title" type="text" placeholder="Title" ng-model="entity.title"/>
-                        <label for="description">Description</label>
-                        <input id="description" type="text" placeholder="Description" ng-model="entity.description"/>
-                    </fieldset>
-                    <button class="btn btn-primary" ng-click="SaveEntity(entity)" type="submit">Save</button>
-                    <button class="btn btn-defaault" ng-click="CancelEdit()" type="cancel">Cancel</button>
+                    </h3>
+                    <span class="lead">{{entity.description}}</span>
                 </div>
             </div>
-        </form>
+        </div>
+        <div ng-controller="editTodoController">
+            <form class="form">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <fieldset>
+                            <label for="title">Title</label>
+                            <input id="title" type="text" placeholder="Title" ng-model="entity.title"/>
+                            <label for="description">Description</label>
+                            <input id="description" type="text" placeholder="Description"
+                                   ng-model="entity.description"/>
+                        </fieldset>
+                        <button class="btn btn-primary" ng-click="SaveEntity(entity)" type="submit">Save</button>
+                        <button class="btn btn-defaault" ng-click="CancelEdit()" type="cancel">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+-->
+
+<!-- fixed top navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <button type="button" class="btn btn-default btn-back navbar-left pull-left hidden" onclick="history.back()">
+            <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
+        </button>
+        <!-- menu button to show/ hide the off canvas slider -->
+        <button type="button" class="btn btn-default btn-menu navbar-left pull-left offCanvasToggle"
+                data-toggle="offcanvas">
+            <i class="fa fa-lg fa-bars"></i><span>Menu</span>
+        </button>
+
+        <a class="navbar-brand no-break-out" title="Customers" href="/">Customers</a>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/dashboard" data-pjax="#main" data-title="Customers"
+                    <i class="fa fa-dashboard"></i>
+                    Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/companies" data-pjax="#main" data-title="Companies"
+                    <i class="fa fa-building-o"></i>
+                    Companies
+                    </a>
+                </li>
+                <li>
+                    <a href="/contacts" data-pjax="#main" data-title="Contacts"
+                    <i class="fa fa-users"></i>
+                    Contacts
+                    </a>
+                </li>
+                <li>
+                    <a href="/notes" data-pjax="#main" data-title="Notes"
+                    <i class="fa fa-clipboard"></i>
+                    Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="/charts" data-pjax="#main" data-title="Charts"
+                    <i class="fa fa-bar-chart-o"></i>
+                    Charts
+                    </a>
+                </li>
+                <li>
+                    <a href="/settings" data-pjax="#main" data-title="Settings"
+                    <i class="fa fa-gears"></i>
+                    Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container bootcards-container" id="main">
+
+    <div class="row">
+        <div class="bootcards-cards">
+
+            <div class="col-sm-8">
+
+                <div class="panel panel-default bootcards-summary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">All categories</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-taxi"></i>
+                                    <h4>Transport<span class="label label-info">432</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-database"></i>
+                                    <h4> Bread <span class="label label-info">98</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-leaf"></i>
+                                    <h4>Vegetables <br> Fruit <span class="label label-danger">54</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-hourglass-end"></i>
+                                    <h4>Milk products <span class="label label-info">65</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-optin-monster"></i>
+                                    <h4>Meat<br> fish <span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-glass"></i>
+                                    <h4>Alcohol <span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-google"></i>
+                                    <h4>Communal payments<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-medkit"></i>
+                                    <h4>Medicament<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-magic"></i>
+                                    <h4>Makeup<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-male"></i>
+                                    <h4>Clothes<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-flask"></i>
+                                    <h4>Domestic chemistry<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                <a class="bootcards-summary-item" href="#">
+                                    <i class="fa fa-3x fa-scissors"></i>
+                                    <h4>Services<span class="label label-warning">109</span></h4>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <small>Built with Bootcards - Summary Card</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 <script src="js/angular.min.js"></script>

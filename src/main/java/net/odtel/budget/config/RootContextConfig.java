@@ -1,4 +1,4 @@
-package net.odtel.knowledgy.config;
+package net.odtel.budget.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.persistence.EntityManagerFactory;
 
 @Configuration
-@ComponentScan({"net.odtel.knowledgy.service", "net.odtel.knowledgy.model"})
+@ComponentScan({"net.odtel.budget.service", "net.odtel.budget.model"})
 public class RootContextConfig {
 
     @Bean(name = "transactionManager")

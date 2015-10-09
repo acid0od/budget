@@ -1,4 +1,4 @@
-package net.odtel.knowledgy.controller;
+package net.odtel.budget.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

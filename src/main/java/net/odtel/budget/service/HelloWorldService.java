@@ -1,4 +1,4 @@
-package net.odtel.knowledgy.service;
+package net.odtel.budget.service;
 
 import org.springframework.stereotype.Service;
 
