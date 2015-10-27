@@ -1,8 +1,9 @@
 package net.odtel.budget.controller;
 
+import net.odtel.budget.model.FormData;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
 @Controller
 public class WelcomeController {
 
-    public static void main (String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         List<String> list = new ArrayList<>();
         list.add("DJKDJKDJK");
         list.add("DD");
@@ -41,12 +42,23 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index (Map<String, Object> model) {
+    public String index(Map<String, Object> model) {
 
         model.put("title", "Title");
         model.put("msg", "Hello Acid!");
 
         return "index";
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @RequestMapping(value = "/SaveData", method = RequestMethod.POST, headers = "Accept=application/json")
+    public void saveData(@RequestBody FormData formData) {
+
+        if (formData != null) {
+            System.out.printf(formData.toString());
+        }
+
     }
 
 }

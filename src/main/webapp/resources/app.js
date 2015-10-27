@@ -24,19 +24,19 @@ todo.controller('saveCtrl', function ($scope, $http, ngDialog) {
         console.log('ngDialog save: ' + JSON.stringify($scope));
 
         var formObj = {
-            'amount': $scope.entity.amount,
-            'type': $scope.entity.type,
-            'date': $scope.entity.date,
-            'description': $scope.entity.description
+            'amount': $scope.amount,
+            'type': $scope.type,
+            'vDate': $scope.vDate,
+            'description': $scope.description
         };
 
         console.log('ngDialog save: ' + JSON.stringify(formObj));
 
         $http({
             method: 'POST',
-            url: '/WebService.asmx/SaveData',
-            data: "{'pFormData':" + JSON.stringify(formObj) + "}",
-            contentType: 'application/json;charset=utf-8',
+            url: '/budget/SaveData.html',
+            data: JSON.stringify(formObj),
+            contentType: 'application/json',
             dataType: "json"
         }).then(function (response) {
             if (response.data.d == true)
@@ -49,7 +49,7 @@ todo.controller('saveCtrl', function ($scope, $http, ngDialog) {
 });
 
 
-todo.controller('MainDialog', function ($scope, $rootScope, ngDialog, $timeout) {
+todo.controller('MainDialog', function ($scope, $filter, $rootScope, ngDialog, $timeout) {
     $rootScope.jsonData = '{"foo": "bar", "nameTitle": "This is only one"}';
     $rootScope.theme = 'ngdialog-theme-default';
 
@@ -57,6 +57,9 @@ todo.controller('MainDialog', function ($scope, $rootScope, ngDialog, $timeout) 
     $scope.showDialog = function (title, value) {
 
         $scope.form = {};
+
+        $scope.vDate = $filter('date')(new Date(), 'yyyy-MM-dd');
+        $scope.type = title;
 
         ngDialog.open({
             template: 'firstDialog',
@@ -66,6 +69,8 @@ todo.controller('MainDialog', function ($scope, $rootScope, ngDialog, $timeout) 
                 nameTitle: title,
                 date: new Date()
             },
+
+            scope: $scope,
             className: 'ngdialog-theme-default ngdialog-theme-flat'
         });
 
